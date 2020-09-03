@@ -7,7 +7,7 @@
     <h1>Hello</h1>
 
     <?php
-        echo "up2";
+        echo "up2yruf";
     ?>
 </body>
 </html>
