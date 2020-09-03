@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/263_Assignment.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.php" afterDir="false" />
-    </list>
+    <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="Updates to connection to DB" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,8 +49,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599095413082</updated>
-      <workItem from="1599095414645" duration="575000" />
+      <workItem from="1599095414645" duration="859000" />
     </task>
+    <task id="LOCAL-00001" summary="Updates to connection to DB">
+      <created>1599096506207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599096506207</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,10 +75,18 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updates to connection to DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates to connection to DB" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="539" y="380" key="NewPhpFileDialog" timestamp="1599096154841">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1599096154841" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599096557720">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1599096557720" />
   </component>
 </project>
