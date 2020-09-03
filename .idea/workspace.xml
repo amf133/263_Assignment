@@ -38,9 +38,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,6 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599095413082</updated>
       <workItem from="1599095414645" duration="859000" />
+      <workItem from="1599097048067" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="Updates to connection to DB">
       <created>1599096506207</created>
@@ -82,6 +85,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updates to connection to DB" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="320" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599097076961">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1599097076961" />
     <state x="539" y="380" key="NewPhpFileDialog" timestamp="1599096154841">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
