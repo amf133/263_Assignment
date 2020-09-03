@@ -8,6 +8,7 @@
 
     <?php
         echo "up2yruf";
+        echo "edit";
     ?>
 </body>
 </html>
