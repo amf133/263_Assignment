@@ -19,10 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="Updates to connection to DB">
       <change beforePath="$PROJECT_DIR$/HomePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tserver.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tserver.sql" afterDir="false" />
     </list>
+=======
+    <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="random" />
+>>>>>>> 05f5992317fc9546e762624c39e7cf896f99cb34
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +39,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gymsRy9BD9MhL5QbZnk2gE4nkw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
