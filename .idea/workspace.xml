@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="Updates to connection to DB" />
+    <list default="true" id="39e03c1f-4bbc-41d0-8493-3a113cb48015" name="Default Changelist" comment="Updates to connection to DB">
+      <change beforePath="$PROJECT_DIR$/HomePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tserver.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tserver.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +56,7 @@
       <updated>1599095413082</updated>
       <workItem from="1599095414645" duration="859000" />
       <workItem from="1599097048067" duration="79000" />
+      <workItem from="1599098208860" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="Updates to connection to DB">
       <created>1599096506207</created>

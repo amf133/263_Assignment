@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>UC Exam Scheduler</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <div id="loginPage">
+        <h2> Please login </h2>
+        <form action="HomePage.php" method="post">
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <br/>
+                <input type="text" placeholder="Enter Username" name="user_name" required>
+                <br/> <br/>
+                <label for="psw"><b>Password</b></label>
+                <br/>
+                <input type="password" placeholder="Enter Password" name="user_password" required>
+                <br/> <br/>
 
-    <?php
-        echo "up2yruf";
-        echo "edit";
-        echo "second edit";
-    ?>
+                <button type="submit">Login</button>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div id="mainPage">
+
+    </div>
+
 </body>
 </html>
 
