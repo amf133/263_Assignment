@@ -26,6 +26,12 @@
 
     <div id="mainPage">
         <h2> Home Page </h2>
+        <input type="submit" value="View Events" onClick="myFunction()"/>
+        <script>
+            function myFunction() {
+                window.location.href="ViewEvent.php";
+            }
+        </script>
     </div>
 
 </body>
