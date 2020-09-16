@@ -6,7 +6,7 @@
 <body>
     <div id="loginPage">
         <h2> Please login </h2>
-        <form action="HomePage.php" method="post">
+        <form action="index.php" method="post">
             <div class="container">
                 <label for="username"><b>Username</b></label>
                 <br/>
@@ -54,6 +54,7 @@ function checkUser($conn, $name, $password) {
     //-------------------can make this more efficient
     $result = mysqli_query($conn, "SELECT * FROM user");
 
+    $password = hash('gost', $password );
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
         if ($row['username'] == $name && $row['password'] == $password) {
             setcookie("username", $name);
