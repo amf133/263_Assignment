@@ -40,14 +40,18 @@ function viewEvent($conn) {
 
 
     //SQL statement to increase the number of days: CURDATE() + INTERVAL 1 DAY
-    $query = "select * from vw_front_event where date < CURDATE() order by date, time, cluster_id, group_id";
+    //need to change query to look at the next 7 days, not the past 150
+    $query = "select event_name, cluster_name, date, time, activate, machine_group, time_offset
+                from vw_front_event natural join front_action
+                where date < CURDATE() and (curdate() - interval 150 day) < date
+                order by date, time, group_id;";
     $result = mysqli_query($conn, $query);
 
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $activate = "Activate";
         if ($row["activate"] == 0) { $activate = "Deactivate";}
-        echo $row['event_name'] . " " . $row['date'] . " " . $row['time'] . " " .
-            $activate . " " . $row['machine_group'] . "<br>";
+        echo $row['event_name'] . " " . $row['cluster_name'] . " " . $row['date'] . " " . $row['time'] . " " .
+            $activate . " " . $row['machine_group'] . " " . $row['time_offset'] . " " .  "<br>";
     }
 
 }
