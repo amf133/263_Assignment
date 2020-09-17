@@ -363,7 +363,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
 `user_id` int NOT NULL AUTO_INCREMENT,
 `username` varchar(32) NOT NULL,
-`password` varchar(32) NOT NULL,
+`password` varchar(64) NOT NULL,
 PRIMARY KEY (user_id)
 );
 
@@ -372,7 +372,7 @@ PRIMARY KEY (user_id)
 --
 
 INSERT INTO `user` (username, password)
-VALUES ('admin', 'admin');
+VALUES ('admin', '0e8cd409a23c2e7ad1c5b22b101dfa16720550dc547921c7a099b75c7f405fd4');
 
 --
 -- Dumping routines for database 'tserver'
