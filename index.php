@@ -49,7 +49,7 @@
                 <button/>Create new event</button>
             </div>
             <div class = "col-4 text-center">
-                <button onClick="window.location.href='ViewEvent.php'"/>View events</button>
+                <button onClick="window.location.href='ViewEvents.html'"/>View events</button>
             </div>
         </div>
         <div class = "row mt-3">
