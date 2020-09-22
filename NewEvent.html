@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>UC Exam Scheduler</title>
+</head>
+<body>
+<form method="post">
+    <div class="container">
+        <div class = "row py-3">
+            <div class = "col-3">
+                <h2>LOGO</h2>
+            </div>
+            <div class = "col-6 text-center">
+                <h2>Create new event</h2>
+            </div>
+            <div class = "col-3 text-right">
+                <h2>ICON</h2>
+            </div>
+        </div>
+        <hr>
+        <div class = "row align-items-center py-3">
+            <div class="col-7">
+                <textarea class="form-control" placeholder="Event Name E.g EMTH119 Test" rows="1"></textarea>
+            </div>
+            <div class="col-5 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select cluster
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="exchangeFrom">
+                        <button class="dropdown-item" type="button">Need to dynamically populate this</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row py-3">
+            <div class = "col text-center">
+                <button class="btn btn-secondary">Choose date and time</button>
+            </div>
+        </div>
+        <div class = "row py-3">
+            <div class = "col text-center">
+                <button class="btn btn-secondary">Add rooms</button>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Summary</h3>
+        </div>
+        <div class="row">
+            <div class="col 8">
+                <p>Selected shit</p>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-success btn-block">Submit</button>
+            </div>
+            <div class="col-2">
+                <input class="btn btn-block btn-danger" type="button" value="Back" onclick="window.location.href = 'index.php'" />
+            </div>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

@@ -45,7 +45,7 @@
                 <h3>Welcome back {name}</h3> <!-- need to change name to cookie name or whatever -->
             </div>
             <div class = "col-4 text-center">
-                <button/>Create new event</button>
+                <button onclick="window.location.href='NewEvent.html'">Create new Event</button>
             </div>
             <div class = "col-4 text-center">
                 <button onClick="window.location.href='ViewEvents.html'"/>View events</button>
