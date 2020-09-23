@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UC Exam Scheduler</title>
+    <title>Assess UC | Welcome</title>
 </head>
 <body>
-<div id="loginPage" class = "container">
+
+<!-- ===================================== LOGIN PAGE ===================================== -->
+<div id="loginPage" class="container">
     <form method="post">
         <div class = "row mt-3">
             <div class = "col text-center">
-                <h2> UC Exam Scheduler </h2>
-                <h5>Please login using your username and password.</h5>
+                <img src="./images/Assess.png" width="300px" height="300px">
             </div>
         </div>
-        <div class="row align-items-center mt-3">
-            <div class="col text-center">
-                <input type="text" id="username" placeholder="Enter Username" name="user_name" required>
+
+        <form>
+            <div class="form-group">
+                <input type="text" id="username" name="user_name" class="form-control" id="formGroupExampleInput" placeholder="Your username" required>
             </div>
-        </div>
+            <div class="form-group">
+                <input type="password" id="password" name="user_password" class="form-control" id="formGroupExampleInput2" placeholder="Your password" required>
+            </div>
+        </form>
+        <br/>
         <div class="row mt-3">
-            <div class = "col text-center">
-                <input type="password" id="password" placeholder="Enter Password" name="user_password" required>
+            <div class="col text-center">
+                <button type="button" class="btn btn-outline-danger" onclick="checkAuth()">Login</button>
             </div>
         </div>
-        <div class="row mt-3">
+
+        <div class="row mt-4">
             <div class="col text-center">
-                <button onclick="checkAuth()">Login</button>
+                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#registerModal">Register New User</button>
+            </div>
+        </div>
+
+        <!-- Register new user modal -->
+        <div class="modal fade" id="registerModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Register a New Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" id="register_username" name="user_name" class="form-control" placeholder="Create a New username" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="register_password" name="user_password" class="form-control" placeholder="Enter your password" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="retype_password" name="user_password" class="form-control" placeholder="Re-Type password" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-success" onclick="registerUser()">Register</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="errorMessage">
@@ -38,6 +75,7 @@
     </form>
 </div>
 
+<!-- ============================================= HOME PAGE ============================================= -->
 <div id="mainPage" class = "container">
     <div class = "row mt-3">
         <div class = "col text-center">
@@ -64,6 +102,13 @@
     <script src="index.js"></script>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
 </html>
+
+<style>
+
+
+</style>
