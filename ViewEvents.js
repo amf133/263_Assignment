@@ -1,6 +1,6 @@
-let searchData; //info pulled from GetEvents.php and added in JSON format here
+let searchData; //info pulled from ViewEvents.php and added in JSON format here
 
-$.get('GetEvents.php', function (data) {
+$.get('ViewEvents.php', function (data) {
     searchData = JSON.parse(data);
     showResult("");
     return;
