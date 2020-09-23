@@ -45,7 +45,6 @@ function viewEvent($conn) {
 
 }
 
-//echo json_encode(
-echo json_encode(viewEvent($conn));
+echo json_encode(viewEvent($conn)); //GetEvents.js will pick this up
 
 ?>

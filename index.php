@@ -8,55 +8,55 @@
     <title>UC Exam Scheduler</title>
 </head>
 <body>
-<form method="post">
-    <div id="loginPage" class = "container">
+<div id="loginPage" class = "container">
+    <form method="post">
         <div class = "row mt-3">
             <div class = "col text-center">
-                <h2> Please login </h2>
+                <h2> UC Exam Scheduler </h2>
+                <h5>Please login using your username and password.</h5>
             </div>
         </div>
-        <div class = "row align-items-center mt-3">
-            <div class = "col text-center">
+        <div class="row align-items-center mt-3">
+            <div class="col text-center">
                 <input type="text" placeholder="Enter Username" name="user_name" required>
             </div>
         </div>
-        <div class = "row mt-3">
+        <div class="row mt-3">
             <div class = "col text-center">
                 <input type="password" placeholder="Enter Password" name="user_password" required>
             </div>
         </div>
-        <div class = "row mt-3">
-            <div class = "col text-center">
+        <div class="row mt-3">
+            <div class="col text-center">
                 <button>Login</button>
             </div>
         </div>
-    </div>
+    </form>
+</div>
 
-</form>
-
-    <div id="mainPage" class = "container">
-        <div class = "row mt-3">
-            <div class = "col text-center">
-                <h2>Your dashboard</h2>
-            </div>
-        </div>
-        <div class = "row mt-3">
-            <div class = "col-4 text-center">
-                <h3>Welcome back {name}</h3> <!-- need to change name to cookie name or whatever -->
-            </div>
-            <div class = "col-4 text-center">
-                <button onclick="window.location.href='NewEvent.html'">Create new Event</button>
-            </div>
-            <div class = "col-4 text-center">
-                <button onClick="window.location.href='ViewEvents.html'"/>View events</button>
-            </div>
-        </div>
-        <div class = "row mt-3">
-            <div class = "col text-center">
-                <textarea style="min-width: 60%" placeholder="Search for new event" rows="1"></textarea>
-            </div>
+<div id="mainPage" class = "container">
+    <div class = "row mt-3">
+        <div class = "col text-center">
+            <h2>Your dashboard</h2>
         </div>
     </div>
+    <div class = "row mt-3">
+        <div class = "col-4 text-center">
+            <h3>Welcome back {name}</h3> <!-- need to change name to cookie name or whatever -->
+        </div>
+        <div class = "col-4 text-center">
+            <button onclick="window.location.href='NewEvent.html'">Create new Event</button>
+        </div>
+        <div class = "col-4 text-center">
+            <button onClick="window.location.href='ViewEvents.html'"/>View events</button>
+        </div>
+    </div>
+    <div class = "row mt-3">
+        <div class = "col text-center">
+            <textarea style="min-width: 60%" placeholder="Search for new event" rows="1"></textarea>
+        </div>
+    </div>
+</div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
