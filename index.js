@@ -41,10 +41,13 @@ function checkCookie() {
     return false;
 }
 
+
 //Function will check if login credentials are correct, display error message otherwise.
 function checkAuth() {
     let username = document.getElementById('username').value;
-    let password = document.getElementById('password').value;
+    let password = document.getElementById('password').value
+    var hash = calcMD5(password);
+    password = document.getElementById('password').value=hash;
 
     //Error checks
     if (username === "" || username === null) {

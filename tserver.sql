@@ -372,7 +372,7 @@ PRIMARY KEY (user_id)
 --
 
 INSERT INTO `user` (username, password)
-VALUES ('admin', 'admin');
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Dumping routines for database 'tserver'
