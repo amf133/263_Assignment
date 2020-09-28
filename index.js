@@ -87,6 +87,13 @@ function checkAuth() {
     document.getElementById('errorMessage').innerHTML = "<p>Invalid username or password</p>";
 }
 
+//============================================ Logout User ===================================================
+
+function logout() {
+    $.cookie("username", null, { path: '/' });
+    location.reload();
+}
+
 
 //============================================ REGISTER A NEW USER ===================================================
 /* Function to register a new user for the system to the database. This function must also automatically log the user
