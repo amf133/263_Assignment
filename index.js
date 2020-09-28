@@ -48,7 +48,7 @@ function checkAuth() {
     let password = document.getElementById('password').value
     var hash = calcMD5(password);
     console.log(hash);
-    //password = document.getElementById('password').value=hash;
+    password = document.getElementById('password').value=hash;
 
     //Error checks
     if (username === "" || username === null) {
