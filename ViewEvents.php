@@ -12,13 +12,12 @@ if ($conn->connect_error)
 function viewEvent($conn) {
     //SQL statement to increase the number of days: CURDATE() + INTERVAL 1 DAY
     //need to change query to look at the next 7 days, not the past 150
-    $query = "select event_name, cluster_name, date, time, activate, machine_group, time_offset
+    $query = "select event_name, cluster_name, date, time, activate, machine_group, time_offset, event_id
                 from vw_front_event natural join front_action
                 where date < CURDATE() and (curdate() - interval 150 day) < date
                 order by date, time, group_id;";
     $result = mysqli_query($conn, $query);
 
-    $count = 0;
     $results = array();
 
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -33,9 +32,14 @@ function viewEvent($conn) {
         $each['time_offset'] = $row['time_offset'];
         $each['activate'] = $row['activate'];
 
-        $results[$count] = json_encode($each);
+        if (array_key_exists($row['event_id'], $results)) { //if event_id already exists, add to existing entry of results
+            $before = $results[$row['event_id']];
+            array_push($before, $each);
+            $results[$row['event_id']] = $before;
 
-        $count += 1;
+        } else { //if event_id doesn't exist, add to results
+            $results[$row['event_id']] = [$each];
+        }
     }
     return $results;
 
