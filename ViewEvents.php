@@ -32,13 +32,15 @@ function viewEvent($conn) {
         $each['time_offset'] = $row['time_offset'];
         $each['activate'] = $row['activate'];
 
+        $id = (string)$row["event_id"];
+
         if (array_key_exists($row['event_id'], $results)) { //if event_id already exists, add to existing entry of results
             $before = $results[$row['event_id']];
             array_push($before, $each);
-            $results[$row['event_id']] = $before;
+            $results[$id] = $before;
 
         } else { //if event_id doesn't exist, add to results
-            $results[$row['event_id']] = [$each];
+            $results[$id] = [$each];
         }
     }
     return $results;
