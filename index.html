@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="./images/AssessIcon.png" />
     <script type="text/javascript" src="md5.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,12 +34,6 @@
         <div class="row mt-3">
             <div class="col text-center">
                 <button type="button" class="btn btn-outline-danger" onclick="checkAuth()">Login</button>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col text-center">
-                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#registerModal">Register New User</button>
             </div>
         </div>
 
@@ -70,6 +66,7 @@
                 </div>
             </div>
         </div>
+
         <div id="errorMessage">
 
         </div>
@@ -77,28 +74,46 @@
 </div>
 
 <!-- ============================================= HOME PAGE ============================================= -->
-<div id="mainPage" class = "container">
+<div id="mainPage">
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/Asses_rectangular.png" width="200px" height="120px" class="d-inline-block align-top" alt="">
+            </a>
+            <h3 class="navbar-text abs-center-x mt-3">
+                Your Dashboard
+            </h3>
+            <div class="dropdown">
+                <ul class="navbar-text mt-3 ml-auto" id="dropdownMenuIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle-o " style="font-size:48px;"></i>
+                </ul>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
+                    <a class="dropdown-item" href="#">My Account</a>
+                    <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <br/>
+
     <div class = "row mt-3">
-        <div class = "col text-center">
-            <h2>Your dashboard</h2>
+        <div class = "col-6 text-center">
+            <h3>Hello Admin </h3> <!-- need to change name to cookie name or whatever -->
+        </div>
+        <div class = "col-2">
+            <button class="btn btn-outline-secondary" onclick="window.location.href='NewEvent.html'"><i class="fa fa-plus"></i> Create New Event</button>
+        </div>
+        <div class = "col-2">
+            <button class="btn btn-outline-secondary" onClick="window.location.href='ViewEvents.html'"/>View All events <i class="fa fa-arrow-right"></i></button>
         </div>
     </div>
-    <div class = "row mt-3">
-        <div class = "col-4 text-center">
-            <h3>Welcome back {name}</h3> <!-- need to change name to cookie name or whatever -->
-        </div>
-        <div class = "col-4 text-center">
-            <button onclick="window.location.href='NewEvent.html'">Create new Event</button>
-        </div>
-        <div class = "col-4 text-center">
-            <button onClick="window.location.href='ViewEvents.html'"/>View events</button>
-        </div>
-    </div>
-    <div class = "row mt-3">
-        <div class = "col text-center">
-            <textarea style="min-width: 60%" placeholder="Search for new event" rows="1"></textarea>
-        </div>
-    </div>
+    <br/><br/>
+
+<!--    <hr class="solid">-->
+
 </div>
     <script src="index.js"></script>
 
@@ -110,6 +125,14 @@
 </html>
 
 <style>
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
+    hr.solid {
+        border-top: 1px solid red;
+    }
 
 </style>

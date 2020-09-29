@@ -47,6 +47,7 @@ function checkAuth() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value
     var hash = calcMD5(password);
+    console.log(hash);
     password = document.getElementById('password').value=hash;
 
     //Error checks
@@ -84,6 +85,13 @@ function checkAuth() {
         }
     }
     document.getElementById('errorMessage').innerHTML = "<p>Invalid username or password</p>";
+}
+
+//============================================ Logout User ===================================================
+
+function logout() {
+    $.cookie("username", null, { path: '/' });
+    location.reload();
 }
 
 
