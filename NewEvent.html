@@ -3,71 +3,129 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="./images/AssessIcon.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UC Exam Scheduler</title>
+    <title>Assess UC | Create New Event</title>
 </head>
 <body>
-<form method="post">
-    <div class="container">
-        <div class = "row py-3">
-            <div class = "col-3">
-                <h2>LOGO</h2>
-            </div>
-            <div class = "col-6 text-center">
-                <h2>Create new event</h2>
-            </div>
-            <div class = "col-3 text-right">
-                <h2>ICON</h2>
+<div id="navBar">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/Asses_rectangular.png" width="200px" height="120px" class="d-inline-block align-top" alt="">
+            </a>
+            <h3 class="navbar-text abs-center-x mt-3">
+                Create New Event
+            </h3>
+            <div class="dropdown">
+                <ul class="navbar-text mt-3 ml-auto" id="dropdownMenuIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle-o " style="font-size:48px;"></i>
+                </ul>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
+                    <a class="dropdown-item" href="#">My Account</a>
+                    <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
+                </div>
             </div>
         </div>
-        <hr>
-        <div class = "row align-items-center py-3">
-            <div class="col-7">
-                <textarea class="form-control" placeholder="Event Name E.g EMTH119 Test" rows="1"></textarea>
+    </nav>
+</div>
+<br/>
+
+<div>
+    <div>
+        <i class="fa fa-arrow-left fa-lg" onclick="window.location.href = 'index.html'" data-toggle="tooltip" data-placement="bottom" title="Back to Home"></i>
+    </div>
+</div>
+
+<br/>
+<div id="createNewEventPage">
+    <div class="container">
+        <form method="post">
+            <div class="form-row centre">
+                <input type="text" class="form-control" id="eventName" placeholder="Assessment Name E.g EMTH119 Test" required>
             </div>
-            <div class="col-5 text-center">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="clusterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select cluster
+            <br/><br/>
+            <div class="form-row">
+                <div class="btn-group dropright clusterDropdown">
+                    <button class="btn btn-outline-danger dropdown-toggle" type="button" id="clusterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select event cluster
                     </button>
                     <div class="dropdown-menu" aria-labelledby="clusterDropdown" id="dropdownMenu">
                         <button id="dropdownItem" class="dropdown-item" type="button">Need to dynamically populate this</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class = "row py-3">
+            <br/><br/>
+            <div class="form-row">
+                <div class = "col text-center">
+                    <label>Select Event Date </label><br/>
+                    <input type="date" id="dateField">
+                </div>
+            </div>
+            <br/><br/>
             <div class = "col text-center">
-                <input type="date" id="dateField">
+                <button type="button" class="btn btn-outline-danger">Add Rooms</button>
             </div>
-        </div>
-        <div class = "row py-3">
-            <div class = "col text-center">
-                <button class="btn btn-secondary">Add rooms</button>
-            </div>
-        </div>
-        <div class="row">
-            <h3>Summary</h3>
-        </div>
-        <div class="row">
-            <div class="col 8">
-                <p>Selected shit</p>
-            </div>
-            <div class="col-2">
-                <button class="btn btn-success btn-block">Submit</button>
-            </div>
-            <div class="col-2">
-                <input class="btn btn-block btn-danger" type="button" value="Back" onclick="window.location.href = 'index.html'" />
-            </div>
-        </div>
-    </div>
+            <br/><br/>
 
-</form>
-</body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <div class="row">
+                <h3>Summary</h3>
+            </div>
+            <div class="row">
+                <div class="col 8">
+                    <p>Selected stuff</p>
+                </div>
+
+                <div class="col-2">
+                    <button class="btn btn-success btn-block">Create Event <i class="fa fa-arrow-circle-right"></i></button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
 <script type="text/javascript" src="newEvent.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+
 </html>
+
+<style>
+
+    body {
+        text-align: center;
+    }
+
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    hr.solid {
+        border-top: 1px solid red;
+    }
+
+    .centre {
+        margin: auto;
+        width: 70%;
+    }
+
+    .clusterDropdown {
+        margin: auto;
+        width: 40%
+    }
+
+
+
+</style>
