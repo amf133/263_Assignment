@@ -11,18 +11,21 @@
     <title>Assess UC | Create New Event</title>
 </head>
 <body>
+<!-- ================================================= NAV BAR ================================================-->
 <div id="navBar">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./images/Asses_rectangular.png" width="200px" height="120px" class="d-inline-block align-top" alt="">
+                <img src="./images/Asses_rectangular.png" class="grow"
+                     onclick="window.location.href = 'index.html'"
+                     width="200px" height="120px" class="d-inline-block align-top" alt="">
             </a>
             <h3 class="navbar-text abs-center-x mt-3">
                 Create New Event
             </h3>
             <div class="dropdown">
                 <ul class="navbar-text mt-3 ml-auto" id="dropdownMenuIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle-o " style="font-size:48px;"></i>
+                    <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
                 </ul>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
@@ -34,10 +37,10 @@
     </nav>
 </div>
 <br/>
-
+<!-- ============================================== Create New Event Page  =========================================-->
 <div>
     <div>
-        <i class="fa fa-arrow-left fa-lg" onclick="window.location.href = 'index.html'" data-toggle="tooltip" data-placement="bottom" title="Back to Home"></i>
+        <i class="fa fa-arrow-left fa-lg grow" onclick="window.location.href = 'index.html'" data-toggle="tooltip" data-placement="bottom" title="Back to Home"></i>
     </div>
 </div>
 
@@ -51,45 +54,76 @@
             <br/><br/>
             <div class="form-row">
                 <div class="btn-group dropright clusterDropdown">
-                    <button class="btn btn-outline-danger dropdown-toggle" type="button" id="clusterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-danger dropdown-toggle" type="button" id="clusterDropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select event cluster
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="clusterDropdown" id="dropdownMenu">
-                        <button id="dropdownItem" class="dropdown-item" type="button">Need to dynamically populate this</button>
+                    <div class="dropdown-menu dropdown-menu-right" id="dropdownMenu">
+
                     </div>
                 </div>
             </div>
+            <br/><br/>
+            <hr class="solid">
+
             <br/><br/>
             <div class="form-row">
                 <div class = "col text-center">
                     <label>Select Event Date </label><br/>
                     <input type="date" id="dateField">
                 </div>
+                <div class = "col text-center">
+                    <label>Start Time </label><br/>
+                    <input type="time" id="startTimeField">
+                </div>
+                <div class = "col text-center">
+                    <label>End Time </label><br/>
+                    <input type="time" id="endTimeField">
+                </div>
             </div>
+            <br/><br/>
+
+            <hr class="solid">
             <br/><br/>
             <div class = "col text-center">
-                <button type="button" class="btn btn-outline-danger">Add Rooms</button>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#addRoomsModal">Add Rooms</button>
             </div>
+            <br/>
+            <div class = "col text-center" id="addedRooms">
+
+            </div>
+
             <br/><br/>
 
-            <div class="row">
-                <h3>Summary</h3>
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success">Create Event <i class="fa fa-arrow-right"></i></button>
             </div>
-            <div class="row">
-                <div class="col 8">
-                    <p>Selected stuff</p>
-                </div>
-
-                <div class="col-2">
-                    <button class="btn btn-success btn-block">Create Event <i class="fa fa-arrow-circle-right"></i></button>
-                </div>
-
-            </div>
-
         </form>
     </div>
 </div>
+<br/>
 
+<!-- ============================================== Add Rooms Modal Popup  =========================================-->
+<div class="modal fade" id="addRoomsModal" tabindex="-1" role="dialog" aria-labelledby="addRoomsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Click room to select</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group" id="listRoomsSection">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="newEvent.js"></script>
 </body>
@@ -97,6 +131,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+
 
 </html>
 
@@ -126,6 +161,8 @@
         width: 40%
     }
 
+    .grow { transition: all .2s ease-in-out; }
+    .grow:hover { transform: scale(1.3); }
 
 
 </style>
