@@ -1,6 +1,6 @@
 let clusters;
-
 let rooms;
+let highlightedRooms = [];
 
 $.get('getClusters.php', function (data) {
     clusters = JSON.parse(data);
@@ -41,10 +41,46 @@ function showRooms() {
     }
 }
 
-//Function to highlight all selections when selecting rooms.
+//Function to highlight clicked selections when selecting rooms & and to create little tablets to show clicked rooms.
 function addSelectedRooms(str) {
-    let selectedRooms = [];
-    // $("#" + str).classList.add("active");
-    return;
+    //The list highlightedRooms is a global list that keeps track of all the rooms selected.
+
+    //Check to make sure the room hasn't been selected already
+    if (!(highlightedRooms.includes(str))) {
+        highlightedRooms.push(str); //Add the room to the list of rooms.
+
+        //highlight the clicked room green
+        let roomName = document.getElementById(str);
+        roomName.classList.add('list-group-item-success');
+
+        //Add little tablets at the bottom of the page to show the selected rooms
+        //let addedRooms = document.getElementById('addedRooms');
+        let addedRooms = document.getElementById('addedRooms')
+        let addedRoomButton = document.createElement('a');
+        addedRoomButton.setAttribute('id', str+"buttonGroupID");
+        addedRoomButton.innerHTML = "<span id='" + str + 'badgeID' + "' class='badge badge-danger'>" + str + "</span> ";
+        addedRooms.appendChild(addedRoomButton);
+        return;
+
+
+    } else {
+        //Remove the item from the highlightedRooms List
+        let strIndex = highlightedRooms.indexOf(str);
+        highlightedRooms.splice(strIndex, 1);
+
+        //Undo the highlighted selection.
+        let roomName = document.getElementById(str);
+        roomName.classList.remove('list-group-item-success');
+
+        //Remove the tablet
+        let addedRooms = document.getElementById('addedRooms')
+        let buttonGroupID = document.getElementById(str+"buttonGroupID");
+        let addedRoomButton = document.getElementById(str + "badgeID");
+        buttonGroupID.removeChild(addedRoomButton);
+        addedRooms.removeChild(buttonGroupID);
+        return;
+
+    }
+
 }
 
