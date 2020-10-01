@@ -30,7 +30,7 @@ function getCookie(cname) {
 
 //Function to check cookie exists. If so, display the main page, otherwise display the login/register page
 function checkCookie() {
-    var username = getCookie("username");
+    let username = getCookie("username");
     if (username != "") {
         document.getElementById('loginPage').style.display = "none";
         document.getElementById('mainPage').style.display = "block";
@@ -46,12 +46,13 @@ function checkCookie() {
 function checkAuth() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value
-    var hash = calcMD5(password);
+    let hash = calcMD5(password);
     console.log(hash);
     password = document.getElementById('password').value=hash;
 
     //Error checks
     if (username === "" || username === null) {
+        document.getElementById('password').value = '';
         alert("Please enter in a username!");
         return;
     }
@@ -75,11 +76,13 @@ function checkAuth() {
                 return;
             }
             else {
+                document.getElementById('password').value = '';
                 alert ("Sorry, Invalid Username & Password combination provided");
                 return;
             }
         }
         else {
+            document.getElementById('password').value = '';
             alert ("Sorry, Invalid Username & Password combination provided");
             return;
         }
