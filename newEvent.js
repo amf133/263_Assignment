@@ -1,13 +1,24 @@
-let clusters;
-let rooms;
-let highlightedRooms = [];
+/* ================================================================================================================
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    JS file with Front-End functionality for creating a New EVENT.
+    see HTML - NewEvent.HTML
+    see PHP - createNewEvent.php
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ =================================================================================================================*/
 
+//GLOBALS
+let clusters; //This is a list of clusters acquired from the database to populate dropdown
+let rooms; //This is a list of rooms acquired from the Database to populate modal
+let highlightedRooms = []; //This list has all the final highlighted rooms
+
+//Get method to get all the clusters from the database and dynamically populate dropdown
 $.get('getClusters.php', function (data) {
     clusters = JSON.parse(data);
     showClusters(); //Populate the clusters dropdown on page load.
     return;
 });
 
+//Get method to get all the rooms from the database and dynamically populate dropdown
 $.get('getRooms.php', function (data) {
     rooms = JSON.parse(data);
     showRooms();
@@ -72,7 +83,7 @@ function addSelectedRooms(str) {
         let roomName = document.getElementById(str);
         roomName.classList.remove('list-group-item-success');
 
-        //Remove the tablet
+        //Remove the little room tablet at the bottom
         let addedRooms = document.getElementById('addedRooms')
         let buttonGroupID = document.getElementById(str+"buttonGroupID");
         let addedRoomButton = document.getElementById(str + "badgeID");
@@ -83,4 +94,30 @@ function addSelectedRooms(str) {
     }
 
 }
+
+//listen for click on create new event button
+$("#createNewEventButton").click(function() {
+    createNewEvent();
+});
+
+//Function to gather all entered details, do error checks and send to PHP via jQuery post function
+function createNewEvent() {
+
+    //collect all the new event details
+    let eventName = document.getElementById("eventName");
+    let eventCluster = document.getElementById("clusterDropdownName");
+    let eventDate = document.getElementById("dateField");
+    let eventStartTime = document.getElementById("startTimeField");
+    let eventEndTime = document.getElementById("endTimeField");
+    //highlightedRooms list is global
+
+    console.log(eventName);
+    console.log(eventCluster);
+    console.log(eventDate);
+    console.log(eventStartTime);
+    console.log(eventEndTime);
+    console.log(highlightedRooms);
+
+}
+
 
