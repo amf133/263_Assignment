@@ -6,21 +6,8 @@ $.get('ViewEvents.php', function (data) {
     return;
 });
 
-function addTimes(time, timeToAdd) {
-    var timeToAddArr = timeToAdd.split(":");
-    var ms = (60 * 60 * parseInt(timeToAddArr[0]) + 60 * (parseInt(timeToAddArr[1])) ) * 1000;
-    var newTime =new Date('1970-01-01T' + time ).getTime() + ms
-    var finalTime = new Date(newTime).toLocaleString('en-GB').slice(12 ,20)
-
-    return finalTime;
-}
-
 function getTimes(event) {
-
-    var offset = event[0].time_offset;
-    var startTimeOffset = event[0].time;
-
-    var startTime = addTimes(startTimeOffset, offset);
+    var startTime = event[0].time;
 
     var finishTime = event[event.length - 1].time;
     var duration = event[event.length -1].time_offset;
@@ -72,7 +59,7 @@ function sortData(searchData) { //this function will convert searchData into mor
         sortedData.push([keys[i], eventName, eventDate, eventTimes[0], eventTimes[1], eventTimes[2], eventGroups, eventStatus]);
     }
 
-    return sortedData;
+    return sortedData.sort(function(a,b){return b[2].localeCompare(a[2]);});
 }
 
 function showResult(str) {
@@ -86,9 +73,8 @@ function showResult(str) {
             div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
                 each[2] +"</td><td>" + each[3] + "</td><td>" +
                 each[4] + "</td><td>" + each[7] +
-                "</td><td><button >View Details</button></td></tr>"
+                "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-primary' data-toggle='modal' data-target='#eventsModal'>View Details</button></td></tr>"
         }
-
 
     } else if (str.length >= 3) {
         //show results based off search based off event name
@@ -98,14 +84,30 @@ function showResult(str) {
                 div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
                     each[2] +"</td><td>" + each[3] + "</td><td>" +
                     each[4] + "</td><td>" + each[7] +
-                    "</td><td><button>View Details</button></td></tr>"
+                    "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-primary' data-toggle='modal' data-target='#eventsModal'>View Details</button></td></tr>"
             }
         }
     }
     return;
 }
 
-function modalPopulate(event) { //populate the modal with more details
+function modalPopulate(id) { //populate the modal with more details
+
+    //find list of elements with id that matches
+
+    console.log("i'm here");
+
+    //populate eventtile div and eventdescr div
+
+
+
+
+
+
+
+    document.getElementById('eventTitle').innerHTML = "<h5>" + id + "</h5>";
+
+
 
 }
 
