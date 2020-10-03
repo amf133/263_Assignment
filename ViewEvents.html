@@ -8,59 +8,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./images/AssessIcon.png" />
     <meta charset="UTF-8">
-    <title>View Events</title>
+    <title>Access UC | View Events</title>
 
 </head>
 <body>
 <!-- ================================================= NAV BAR ================================================-->
-<div id="navBar">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="./images/Asses_rectangular.png" class="grow"
-                     onclick="window.location.href = 'index.html'"
-                     width="200px" height="120px" class="d-inline-block align-top" alt="">
-            </a>
-            <h3 class="navbar-text abs-center-x mt-3">
-                View Events
-            </h3>
-            <div class="dropdown">
-                <ul class="navbar-text mt-3 ml-auto" id="dropdownMenuIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
-                </ul>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
-                    <a class="dropdown-item" href="#">My Account</a>
-                    <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
+    <div id="navBar">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/Asses_rectangular.png" class="grow"
+                         onclick="window.location.href = 'index.html'"
+                         width="200px" height="120px" class="d-inline-block align-top" alt="">
+                </a>
+                <h3 class="navbar-text abs-center-x mt-3">
+                    View Events
+                </h3>
+                <div class="dropdown">
+                    <ul class="navbar-text mt-3 ml-auto" id="dropdownMenuIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
+                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
+                    </div>
                 </div>
             </div>
+        </nav>
+    </div>
+    <br/>
+<!-- ================================================= View All Events  ================================================-->
+
+    <div>
+        <div>
+            <i class="fa fa-arrow-left fa-lg grow" onclick="window.location.href = 'index.html'" data-toggle="tooltip" data-placement="bottom" title="Back to Home"></i>
         </div>
-    </nav>
-</div>
+    </div>
+    <br/>
+
+    <div class = "container">
+        <div class = "d-flex justify-content-center">
+            <input type="text" id="searchString" class="form-control searchBox" placeholder="Search for an event..." onkeyup="showResult(this.value)" aria-label="searchBox" aria-describedby="basic-addon1">
+<!--            <textarea id="searchString" style="min-width: 60%; resize:none" placeholder="Search..." rows="1" onkeyup="showResult(this.value)"></textarea>-->
+        </div>
+    </div>
+    <br/>
 <br/>
 
-    <div class = "row mt-3">
-        <div class = "col text-center">
-            <h2>View Events</h2>
-            <button onClick="window.location.href='index.html'"/>Back</button>
+    <div class="container">
+        <div class="col text-center">
+            <table id="events" class="table">
+
+
+            </table>
+
         </div>
     </div>
 
-    <div class = "row mt-3">
-        <div class = "col text-center">
-            <textarea id="searchString" style="min-width: 60%; resize:none" placeholder="Search..." rows="1" onkeyup="showResult(this.value)"></textarea>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="col text-center">
-        <table id="events" class="table">
-
-
-        </table>
-
-    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="eventsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,5 +113,10 @@
     .grow { transition: all .2s ease-in-out; }
     .grow:hover { transform: scale(1.3); }
 
+    .searchBox {
+        width: 60%;
+        resize:none;
+
+    }
 
 </style>
