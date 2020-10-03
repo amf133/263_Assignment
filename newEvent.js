@@ -102,22 +102,24 @@ $("#createNewEventButton").click(function() {
 
 //Function to gather all entered details, do error checks and send to PHP via jQuery post function
 function createNewEvent() {
-
     //collect all the new event details
-    let eventName = document.getElementById("eventName");
-    let eventCluster = document.getElementById("clusterDropdownName");
-    let eventDate = document.getElementById("dateField");
-    let eventStartTime = document.getElementById("startTimeField");
-    let eventEndTime = document.getElementById("endTimeField");
+    let eventName = document.getElementById("eventName").value;
+    let eventCluster = document.getElementById("clusterDropdownName").innerHTML;
+    let eventDate = document.getElementById("dateField").value;
+    let eventStartTime = document.getElementById("startTimeField").value;
+    let eventEndTime = document.getElementById("endTimeField").value;
     //highlightedRooms list is global
 
-    console.log(eventName);
-    console.log(eventCluster);
-    console.log(eventDate);
-    console.log(eventStartTime);
-    console.log(eventEndTime);
-    console.log(highlightedRooms);
+    //create a JSON object from the given data
+    let sendData = JSON.parse('{"event_name": "' + eventName + '", "date": "' + eventDate + '", "groups": "' +
+        highlightedRooms.join() + '", "start_time": "' + eventStartTime + '", "finish_time": "' + eventEndTime +
+        '", "cluster": "' + eventCluster + '"}');
 
+    //send data to the php file to process
+    $.post( "NewEvent.php", { sendData })
+        .done(function( data ) {
+            alert( "Data Loaded: " + data );
+        });
 }
 
 

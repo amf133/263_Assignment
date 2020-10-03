@@ -23,7 +23,6 @@ function getDates($date) {
     $week = $date->format("W");
     $year = $date->format("Y");
     $day = $date->format("d")%7; //%7 to get day of week, not day of month
-    echo "Day: $day";
     return array($day, $week, $year);
 }
 
@@ -61,17 +60,27 @@ function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_ti
     $event_id = getNewId();
     $dyWkYr = getDates($date); //array with three values
     $cluster_id = getClusterId($cluster);
-    $length = $finish_time - $start_time; //I feel like this line needs to be changed
+
+    $start_date = new DateTime($date . $start_time);
+    $length = $start_date->diff(new DateTime($date . $finish_time))->format("%H:%I:%S");
+
     $rows = count($group_ids);
 
     submitQuery("insert into front_event (event_name, status) values ('$event_name', 1)");
     submitQuery("insert into front_weekly (event_id, week_of_year, event_year) values ($event_id, $dyWkYr[1], $dyWkYr[2])");
     for ($i = 0; $i < $rows; $i++) { //loop through the rooms that we need to add
-        submitQuery("insert into front_daily (event_id, group_id, day_of_week, start_time) values ($event_id, $group_ids[i], $dyWkYr[0], '18:00:00')");
+        submitQuery("insert into front_daily (event_id, group_id, day_of_week, start_time) values ($event_id, $group_ids[$i], $dyWkYr[0], '$start_time')");
     }
     submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '-00:05:00', 3, 0)");
     submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '-00:05:00', $cluster_id, 1)");
     submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '$length', $cluster_id, 0)");
     submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '$length', 3, 1)");
+    echo "Success!";
+}
 
+//this only runs if data is send as a 'post' method
+if ( isset($_POST["sendData"]) ) {
+    $data = $_POST["sendData"];
+    $groups = explode(',', $data["groups"]);
+    addEvent($data["event_name"], $groups, $data["date"], $data["cluster"], $data["start_time"], $data["finish_time"]);
 }

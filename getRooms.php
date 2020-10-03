@@ -14,11 +14,11 @@ if ($conn->connect_error) {
 
 function getRooms() {
     global $conn;
-    $query = "SELECT room_name FROM front_room";
+    $query = "SELECT machine_group FROM front_group";
     $result = mysqli_query($conn, $query);
     $results = array();
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-        array_push($results, $row['room_name']);
+        array_push($results, $row['machine_group']);
     }
     return $results;
 }

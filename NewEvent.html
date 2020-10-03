@@ -47,57 +47,55 @@
 <br/>
 <div id="createNewEventPage">
     <div class="container">
-        <form method="post">
-            <div class="form-row centre">
-                <input type="text" class="form-control" id="eventName" placeholder="Assessment Name E.g EMTH119 Test" required>
-            </div>
-            <br/><br/>
-            <div class="form-row">
-                <div class="btn-group dropright clusterDropdown">
-                    <button class="btn btn-outline-danger dropdown-toggle" type="button" id="clusterDropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select event cluster
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" id="dropdownMenu">
+        <div class="form-row centre">
+            <input type="text" class="form-control" id="eventName" placeholder="Assessment Name E.g EMTH119 Test" required>
+        </div>
+        <br/><br/>
+        <div class="form-row">
+            <div class="btn-group dropright clusterDropdown">
+                <button class="btn btn-outline-danger dropdown-toggle" type="button" id="clusterDropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select event cluster
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" id="dropdownMenu">
 
-                    </div>
                 </div>
             </div>
-            <br/><br/>
-            <hr class="solid">
+        </div>
+        <br/><br/>
+        <hr class="solid">
 
-            <br/><br/>
-            <div class="form-row">
-                <div class = "col text-center">
-                    <label>Select Event Date </label><br/>
-                    <input type="date" id="dateField">
-                </div>
-                <div class = "col text-center">
-                    <label>Start Time </label><br/>
-                    <input type="time" id="startTimeField">
-                </div>
-                <div class = "col text-center">
-                    <label>End Time </label><br/>
-                    <input type="time" id="endTimeField">
-                </div>
-            </div>
-            <br/><br/>
-
-            <hr class="solid">
-            <br/><br/>
+        <br/><br/>
+        <div class="form-row">
             <div class = "col text-center">
-                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#addRoomsModal">Select Rooms</button>
+                <label>Select Event Date </label><br/>
+                <input type="date" id="dateField">
             </div>
-            <br/>
-            <div class = "col text-center" id="addedRooms">
-
+            <div class = "col text-center">
+                <label>Start Time </label><br/>
+                <input type="time" id="startTimeField">
             </div>
-
-            <br/><br/>
-
-            <div class="col-md-12 text-right">
-                <button id="createNewEventButton" class="btn btn-success">Create Event <i class="fa fa-arrow-right"></i></button>
+            <div class = "col text-center">
+                <label>End Time </label><br/>
+                <input type="time" id="endTimeField">
             </div>
-        </form>
+        </div>
+        <br/><br/>
+
+        <hr class="solid">
+        <br/><br/>
+        <div class = "col text-center">
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#addRoomsModal">Select Rooms</button>
+        </div>
+        <br/>
+        <div class = "col text-center" id="addedRooms">
+
+        </div>
+
+        <br/><br/>
+
+        <div class="col-md-12 text-right">
+            <button id="createNewEventButton" class="btn btn-success">Create Event <i class="fa fa-arrow-right"></i></button>
+        </div>
     </div>
 </div>
 <br/>
@@ -131,7 +129,6 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
 
 
