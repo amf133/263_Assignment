@@ -22,7 +22,7 @@ function getDates($date) {
     $date = new DateTime($date);
     $week = $date->format("W");
     $year = $date->format("Y");
-    $day = $date->format("d")%7; //%7 to get day of week, not day of month
+    $day = $date->format("N")%7;//have no clue why we need to include the '%7' but it makes it work so..
     return array($day, $week, $year);
 }
 
@@ -51,7 +51,9 @@ function getNewId() {
 function submitQuery($query) {
     /* Submit query to server from given string */
     global $conn;
-    mysqli_query($conn, $query);
+    if(mysqli_query($conn, $query) === FALSE) {
+        exit("One or more queries failed execution");
+    };
 }
 
 function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_time) {
