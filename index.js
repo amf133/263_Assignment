@@ -93,8 +93,11 @@ function checkAuth() {
 //============================================ Logout User ===================================================
 
 function logout() {
-    $.cookie("username", null, { path: '/' });
-    location.reload();
+    document.getElementById('password').value = '';
+    document.getElementById('username').value = '';
+    document.cookie = name + '=; Max-Age=0';
+    document.getElementById('mainPage').style.display = "none";
+    document.getElementById('loginPage').style.display = "block";
 }
 
 
