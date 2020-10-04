@@ -91,23 +91,48 @@ function showResult(str) {
     return;
 }
 
+function deleteEvent(id) { //deleting event
+    console.log(id);
+
+    //TODO: implement delete to delete all events where event_id = id
+
+}
+
+function findEvent(id) {
+    for (let i = 0; i < searchData.length; i++) {
+        if (id == searchData[i][0]) {
+            return searchData[i];
+        }
+    }
+}
+
 function modalPopulate(id) { //populate the modal with more details
+    //TODO: check styling of group name '-' or ' ' can be easily changed
+    //TODO: check duration keep it as is or add offset + duration to get difference
 
-    //find list of elements with id that matches
+    var event = findEvent(id); //find list of elements with id that matches
 
-    console.log("i'm here");
+    document.getElementById('eventTitle').innerHTML = "<h5>" + event[1] + "</h5>"; //title
 
-    //populate eventtile div and eventdescr div
+    
+    var description = document.getElementById('eventDescription'); //description
 
+    description.innerHTML = "";
+    description.innerHTML += "Event ID: " + id + "<br/>"; //event_id
+    description.innerHTML += "Date: " + event[2] + "<br/><br/>"; //date
+    description.innerHTML += "Start Time: " + event[3] + "<br/>"; //start time
+    description.innerHTML += "Finish Time: " + event[4] + "<br/>"; //finish time
+    description.innerHTML += "Duration: " + event[5] + "<br/><br/>"; //duration
 
+    description.innerHTML += "Groups: <br/>"; //groups
+    for (let i = 0; i < event[6].length; i++) {
+        description.innerHTML += event[6][i] + "<br/>";
+    }
 
+    description.innerHTML += "<br/>Status: " + event[7] + "<br/>"; //status
 
-
-
-
-    document.getElementById('eventTitle').innerHTML = "<h5>" + id + "</h5>";
-
-
+    //delete button (logic yet to be done)
+    document.getElementById('eventDelete').innerHTML = "<button class='btn btn-danger' id='" + id + "' onclick='deleteEvent(this.id)'>Delete</button>"
 
 }
 
