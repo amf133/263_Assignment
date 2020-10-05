@@ -153,4 +153,8 @@ function createNewEvent() {
         });
 }
 
+function logout() {
+    document.cookie = "admin=; expires=Fri, 1 Jan 1960 23:59:59 GMT";
+    window.location.href = './index.html';
+}
 
