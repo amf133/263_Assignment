@@ -110,6 +110,44 @@ function createNewEvent() {
     let eventEndTime = document.getElementById("endTimeField").value;
     //highlightedRooms list is global
 
+    //Error checks for Creation of new date.
+
+    if (eventName === null || eventName === "") {
+        alert("Event name required");
+        return;
+    }
+
+
+    if (!(clusters.includes(eventCluster))) {
+        alert("Please select a cluster");
+        return;
+    }
+
+    if (eventDate === "" || eventDate === null) {
+        alert("Valid date required");
+        return;
+    }
+
+    let today = new Date();
+    let todayFormatted = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+
+
+    if (Date.parse(todayFormatted) > Date.parse(eventDate)) {
+        alert("Date must either be today or in the future");
+        return;
+    }
+
+    if (eventStartTime === "" || eventEndTime === "") {
+        alert("Please enter event start time and end time");
+        return;
+    }
+
+    if (highlightedRooms.length === 0) {
+        alert("Please select rooms");
+        return;
+    }
+
+
     //create a JSON object from the given data
     let sendData = JSON.parse('{"event_name": "' + eventName + '", "date": "' + eventDate + '", "groups": "' +
         highlightedRooms.join() + '", "start_time": "' + eventStartTime + '", "finish_time": "' + eventEndTime +
