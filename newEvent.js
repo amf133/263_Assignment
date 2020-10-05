@@ -72,8 +72,6 @@ function addSelectedRooms(str) {
         addedRoomButton.innerHTML = "<span id='" + str + 'badgeID' + "' class='badge badge-danger'>" + str + "</span> ";
         addedRooms.appendChild(addedRoomButton);
         return;
-
-
     } else {
         //Remove the item from the highlightedRooms List
         let strIndex = highlightedRooms.indexOf(str);
@@ -117,7 +115,6 @@ function createNewEvent() {
         return;
     }
 
-
     if (!(clusters.includes(eventCluster))) {
         alert("Please select a cluster");
         return;
@@ -129,10 +126,7 @@ function createNewEvent() {
     }
 
     let today = new Date();
-    let todayFormatted = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-
-
-    if (Date.parse(todayFormatted) > Date.parse(eventDate)) {
+    if (today > Date.parse(eventDate)) {
         alert("Date must either be today or in the future");
         return;
     }
@@ -146,7 +140,6 @@ function createNewEvent() {
         alert("Please select rooms");
         return;
     }
-
 
     //create a JSON object from the given data
     let sendData = JSON.parse('{"event_name": "' + eventName + '", "date": "' + eventDate + '", "groups": "' +
