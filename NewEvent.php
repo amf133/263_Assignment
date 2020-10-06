@@ -68,15 +68,12 @@ function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_ti
 
     $rows = count($group_ids);
 
-    submitQuery("insert into front_event (event_name, status) values ('$event_name', 1)");
-    submitQuery("insert into front_weekly (event_id, week_of_year, event_year) values ($event_id, $dyWkYr[1], $dyWkYr[2])");
+    //calling stored procedures
+    submitQuery("call add_event_week('$event_name', $event_id, $dyWkYr[1], $dyWkYr[2])");
     for ($i = 0; $i < $rows; $i++) { //loop through the rooms that we need to add
-        submitQuery("insert into front_daily (event_id, group_id, day_of_week, start_time) values ($event_id, $group_ids[$i], $dyWkYr[0], '$start_time')");
+        submitQuery("call add_daily($event_id, $group_ids[$i], $dyWkYr[0], '$start_time')");
     }
-    submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '-00:05:00', 3, 0)");
-    submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '-00:05:00', $cluster_id, 1)");
-    submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '$length', $cluster_id, 0)");
-    submitQuery("insert into front_action (event_id, time_offset, cluster_id, activate) values ($event_id, '$length', 3, 1)");
+    submitQuery("call add_action($event_id, $cluster_id, '$length')");
     echo "Success!";
 }
 
