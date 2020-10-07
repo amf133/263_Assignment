@@ -146,7 +146,7 @@ function createNewEvent() {
     //create a JSON object from the given data
     let sendData = JSON.parse('{"event_name": "' + eventName + '", "date": "' + eventDate + '", "groups": "' +
         highlightedRooms.join() + '", "start_time": "' + eventStartTime + '", "finish_time": "' + eventEndTime +
-        '", "cluster": "' + eventCluster + '"}');
+        '", "cluster": "' + eventCluster + '", "offset": "' + eventTimeOffset + '"}');
 
     //send data to the php file to process
     $.post( "NewEvent.php", { sendData })

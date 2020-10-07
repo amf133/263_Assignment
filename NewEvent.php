@@ -56,8 +56,9 @@ function submitQuery($query) {
     };
 }
 
-function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_time) {
+function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_time, $offset) {
     /* get variables from JS, convert to required input, add to database */
+    global $conn;
     $group_ids = getGroupIds($groups);
     $event_id = getNewId();
     $dyWkYr = getDates($date); //array with three values
@@ -73,7 +74,7 @@ function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_ti
     for ($i = 0; $i < $rows; $i++) { //loop through the rooms that we need to add
         submitQuery("call add_daily($event_id, $group_ids[$i], $dyWkYr[0], '$start_time')");
     }
-    submitQuery("call add_action($event_id, $cluster_id, '$length')");
+    submitQuery("call add_action($event_id, $cluster_id, '-$offset', '$length')");
     echo "Success!";
 }
 
@@ -81,5 +82,5 @@ function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_ti
 if ( isset($_POST["sendData"]) ) {
     $data = $_POST["sendData"];
     $groups = explode(',', $data["groups"]);
-    addEvent($data["event_name"], $groups, $data["date"], $data["cluster"], $data["start_time"], $data["finish_time"]);
+    addEvent($data["event_name"], $groups, $data["date"], $data["cluster"], $data["start_time"], $data["finish_time"], $data["offset"]);
 }
