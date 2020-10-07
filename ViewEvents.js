@@ -91,10 +91,10 @@ function showResult(str) {
     return;
 }
 
-function deleteEvent(id) { //deleting event
+function disableEvent(id) { //disable event
     console.log(id);
 
-    //TODO: implement delete to delete all events where event_id = id
+    //TODO: implement disable to disable all events where event_id = id
 
 }
 
@@ -131,8 +131,8 @@ function modalPopulate(id) { //populate the modal with more details
 
     description.innerHTML += "<br/>Status: " + event[7] + "<br/>"; //status
 
-    //delete button (logic yet to be done)
-    document.getElementById('eventDelete').innerHTML = "<button class='btn btn-danger' id='" + id + "' onclick='deleteEvent(this.id)'>Delete</button>"
+    //disable button (logic yet to be done)
+    document.getElementById('disableEvent').innerHTML = "<button class='btn btn-danger' id='" + id + "' onclick='disableEvent(this.id)'>Disable</button>"
 
 }
 
