@@ -106,6 +106,7 @@ function createNewEvent() {
     let eventDate = document.getElementById("dateField").value;
     let eventStartTime = document.getElementById("startTimeField").value;
     let eventEndTime = document.getElementById("endTimeField").value;
+    let eventTimeOffset = document.getElementById("timeOffset").value;
     //highlightedRooms list is global
 
     //Error checks for Creation of new date.
@@ -131,10 +132,11 @@ function createNewEvent() {
         return;
     }
 
-    if (eventStartTime === "" || eventEndTime === "") {
-        alert("Please enter event start time and end time");
+    if (eventStartTime === "" || eventEndTime === "" || eventTimeOffset === "") {
+        alert("Please enter all event timing details");
         return;
     }
+
 
     if (highlightedRooms.length === 0) {
         alert("Please select rooms");
@@ -150,6 +152,9 @@ function createNewEvent() {
     $.post( "NewEvent.php", { sendData })
         .done(function( data ) {
             alert( "Data Loaded: " + data );
+            if (data === "Success!") {
+                window.location.href = 'viewEvents.html';
+            }
         });
 }
 
