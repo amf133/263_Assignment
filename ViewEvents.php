@@ -14,7 +14,6 @@ function viewEvent($conn) {
     //need to change query to look at the next 7 days, not the past 150
     $query = "select event_name, cluster_name, date, time, activate, machine_group, time_offset, event_id
                 from vw_front_event natural join front_action
-                where date < CURDATE() and (curdate() - interval 150 day) < date
                 order by date, time, group_id;";
     $result = mysqli_query($conn, $query);
 
@@ -23,7 +22,6 @@ function viewEvent($conn) {
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
         $each = array();
-
         $each['event_name'] = $row['event_name'];
         $each['cluster_name'] = $row['cluster_name'];
         $each['date'] = $row['date'];

@@ -114,7 +114,7 @@ function modalPopulate(id) { //populate the modal with more details
 
     document.getElementById('eventTitle').innerHTML = "<h5>" + event[1] + "</h5>"; //title
 
-    
+
     var description = document.getElementById('eventDescription'); //description
 
     description.innerHTML = "";
