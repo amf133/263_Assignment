@@ -30,7 +30,7 @@ function getCookie(cname) {
 
 //Function to check cookie exists. If so, display the main page, otherwise display the login/register page
 function checkCookie() {
-    let username = getCookie("username");
+    let username = getCookie('admin');
     if (username != "") {
         document.getElementById('loginPage').style.display = "none";
         document.getElementById('mainPage').style.display = "block";
@@ -41,13 +41,11 @@ function checkCookie() {
     return false;
 }
 
-
 //Function will check if login credentials are correct, display error message otherwise.
 function checkAuth() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value
     let hash = calcMD5(password);
-    console.log(hash);
     password = document.getElementById('password').value=hash;
 
     //Error checks
@@ -64,10 +62,9 @@ function checkAuth() {
 
     for (let i = 0; i <= userData.length; i++) {
         let each = JSON.parse(userData[i]);
-
         if (username === each['username']) {
             if (password === each['password']) { // the password needs to be hashed in db and checked against
-                document.cookie = "username=" + username; //store cookie
+                document.cookie = username + "=" + username + "; SameSite=Lax";
 
                 //hide login screen, show main page
                 document.getElementById('loginPage').style.display = "none";
@@ -93,8 +90,10 @@ function checkAuth() {
 //============================================ Logout User ===================================================
 
 function logout() {
-    $.cookie("username", null, { path: '/' });
-    location.reload();
+    document.getElementById('password').value = '';
+    document.getElementById('username').value = '';
+    document.cookie = "admin=; expires=Fri, 1 Jan 1960 23:59:59 GMT";
+    window.location.href = './index.html';
 }
 
 
@@ -136,8 +135,6 @@ function registerUser() {
 
     //Passowrd needs to be hashed and sent to the database using register.php
     //Cookies need to be set and user needs to be automatically logged in
-
-
 }
 
 checkCookie();

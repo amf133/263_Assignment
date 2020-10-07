@@ -2,7 +2,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     JS file with Front-End functionality for creating a New EVENT.
     see HTML - NewEvent.HTML
-    see PHP - createNewEvent.php
+    see PHP - NewEvent.php
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  =================================================================================================================*/
 
@@ -72,8 +72,6 @@ function addSelectedRooms(str) {
         addedRoomButton.innerHTML = "<span id='" + str + 'badgeID' + "' class='badge badge-danger'>" + str + "</span> ";
         addedRooms.appendChild(addedRoomButton);
         return;
-
-
     } else {
         //Remove the item from the highlightedRooms List
         let strIndex = highlightedRooms.indexOf(str);
@@ -110,6 +108,39 @@ function createNewEvent() {
     let eventEndTime = document.getElementById("endTimeField").value;
     //highlightedRooms list is global
 
+    //Error checks for Creation of new date.
+
+    if (eventName === null || eventName === "") {
+        alert("Event name required");
+        return;
+    }
+
+    if (!(clusters.includes(eventCluster))) {
+        alert("Please select a cluster");
+        return;
+    }
+
+    if (eventDate === "" || eventDate === null) {
+        alert("Valid date required");
+        return;
+    }
+
+    let today = new Date();
+    if (today > Date.parse(eventDate)) {
+        alert("Date must either be today or in the future");
+        return;
+    }
+
+    if (eventStartTime === "" || eventEndTime === "") {
+        alert("Please enter event start time and end time");
+        return;
+    }
+
+    if (highlightedRooms.length === 0) {
+        alert("Please select rooms");
+        return;
+    }
+
     //create a JSON object from the given data
     let sendData = JSON.parse('{"event_name": "' + eventName + '", "date": "' + eventDate + '", "groups": "' +
         highlightedRooms.join() + '", "start_time": "' + eventStartTime + '", "finish_time": "' + eventEndTime +
@@ -122,4 +153,8 @@ function createNewEvent() {
         });
 }
 
+function logout() {
+    document.cookie = "admin=; expires=Fri, 1 Jan 1960 23:59:59 GMT";
+    window.location.href = './index.html';
+}
 

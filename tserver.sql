@@ -623,4 +623,55 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+DROP PROCEDURE IF EXISTS add_event_week;
+
+DELIMITER ;;
+
+CREATE PROCEDURE add_event_week(
+	IN name VARCHAR(255),
+    IN id INT,
+    IN week INT,
+    IN year INT
+)
+BEGIN
+	insert into front_event (event_name, status) values (name, 1);
+    insert into front_weekly (event_id, week_of_year, event_year) values (id, week, year);
+END ;;
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS add_daily;
+
+DELIMITER ;;
+
+CREATE PROCEDURE add_daily(
+    IN id INT,
+    IN group_id VARCHAR(255),
+    IN day INT,
+    IN start TIME
+)
+BEGIN
+	insert into front_daily (event_id, group_id, day_of_week, start_time) values (id, group_id, day, start);
+END ;;
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS add_action;
+
+DELIMITER ;;
+
+CREATE PROCEDURE add_action(
+    IN id INT,
+    IN cluster INT,
+    IN length TIME
+)
+BEGIN
+	insert into front_action (event_id, time_offset, cluster_id, activate) values (id, '-00:05:00', 3, 0);
+    insert into front_action (event_id, time_offset, cluster_id, activate) values (id, '-00:05:00', cluster, 1);
+    insert into front_action (event_id, time_offset, cluster_id, activate) values (id, length, cluster, 0);
+    insert into front_action (event_id, time_offset, cluster_id, activate) values (id, length, 3, 1);
+END ;;
+
+DELIMITER ;
+
 -- Dump completed on 2020-08-21 13:45:45
