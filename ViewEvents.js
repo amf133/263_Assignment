@@ -2,9 +2,38 @@ let searchData; //info pulled from ViewEvents.php and added in JSON format here
 
 $.get('ViewEvents.php', function (data) {
     searchData = sortData(JSON.parse(data));
-    showResult("");
+    if (document.getElementById('events')) {
+        showResult("");
+    } else if (document.getElementById('upcomingEvents')) { //if on home page, populate count of each event
+        dynamicHomeDisplay(); //populates main display on homepage
+    }
     return;
 });
+
+
+
+
+function dynamicHomeDisplay() {
+    var upcomingEvents = 0;
+    var inProgressEvents = 0;
+    var completeEvents = 0;
+
+    for (let i = 0; i < searchData.length; i++) {
+        let status = searchData[i][7];
+        if (status == "Complete") {
+            completeEvents += 1;
+        }  else if (status === "Upcoming") {
+            upcomingEvents += 1;
+        } else {
+            inProgressEvents += 1;
+        }
+    }
+
+    document.getElementById('inProgressEvents').innerHTML = inProgressEvents;
+    document.getElementById('upcomingEvents').innerHTML = upcomingEvents;
+    document.getElementById('completeEvents').innerHTML = completeEvents;
+
+}
 
 function getTimes(event) {
     var startTime = event[0].time;
