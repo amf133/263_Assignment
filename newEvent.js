@@ -3,6 +3,7 @@
     JS file with Front-End functionality for creating a New EVENT.
     see HTML - NewEvent.HTML
     see PHP - NewEvent.php
+    Authors: Sean Madondo, Simon Lorimer, Josiah Thorpe, Alec Fox
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  =================================================================================================================*/
 
@@ -106,10 +107,14 @@ function createNewEvent() {
     let eventDate = document.getElementById("dateField").value;
     let eventStartTime = document.getElementById("startTimeField").value;
     let eventEndTime = document.getElementById("endTimeField").value;
-    let eventTimeOffset = document.getElementById("timeOffset").value;
+
+    //Change the timeoffset to time format with "HH:MM:SS".
+    let offsetMinutes = document.getElementById("timeOffset").value;
+    let eventTimeOffset = "00:" + offsetMinutes + ":00";
+
     //highlightedRooms list is global
 
-    //Error checks for Creation of new date.
+    //Error checks for Creation of new event.
 
     if (eventName === null || eventName === "") {
         alert("Event name required");
