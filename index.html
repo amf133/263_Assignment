@@ -40,36 +40,6 @@
             </div>
         </div>
 
-        <!-- Register new user modal -->
-        <div class="modal fade" id="registerModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Register a New Account</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" id="register_username" name="user_name" class="form-control" placeholder="Create a New username" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="register_password" name="user_password" class="form-control" placeholder="Enter your password" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="retype_password" name="user_password" class="form-control" placeholder="Re-Type password" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success" onclick="registerUser()">Register</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div id="errorMessage">
 
         </div>
@@ -96,8 +66,7 @@
                     <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
                 </ul>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
-                    <a class="dropdown-item" href="#">My Account</a>
+<!--                    <a class="dropdown-item" href="#">My Account</a>-->
                     <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
                 </div>
             </div>

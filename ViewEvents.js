@@ -11,8 +11,6 @@ $.get('ViewEvents.php', function (data) {
 });
 
 
-
-
 function dynamicHomeDisplay() {
     var upcomingEvents = 0;
     var inProgressEvents = 0;
@@ -102,7 +100,7 @@ function showResult(str) {
             div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
                 each[2] +"</td><td>" + each[3] + "</td><td>" +
                 each[4] + "</td><td>" + each[7] +
-                "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#eventsModal'>View Details</button></td></tr>"
+                "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
         }
 
     } else if (str.length >= 3) {
@@ -113,7 +111,7 @@ function showResult(str) {
                 div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
                     each[2] +"</td><td>" + each[3] + "</td><td>" +
                     each[4] + "</td><td>" + each[7] +
-                    "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger' data-toggle='modal' data-target='#eventsModal'>View Details</button></td></tr>"
+                    "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
             }
         }
     }
@@ -164,6 +162,7 @@ function modalPopulate(id) { //populate the modal with more details
     document.getElementById('disableEvent').innerHTML = "<button class='btn btn-danger' id='" + id + "' onclick='disableEvent(this.id)'>Disable</button>"
 
 }
+
 
 function logout() {
     document.cookie = "admin=; expires=Fri, 1 Jan 1960 23:59:59 GMT";

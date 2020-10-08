@@ -7,6 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./images/AssessIcon.png" />
+
+
+
     <meta charset="UTF-8">
     <title>Access UC | View Events</title>
 
@@ -29,8 +32,7 @@
                         <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
                     </ul>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <!--                    <a class="dropdown-item" data-toggle="modal" data-target="#registerModal">Register New User</a>-->
-                        <a class="dropdown-item" href="#">My Account</a>
+<!--                        <a class="dropdown-item" href="#">My Account</a>-->
                         <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
                     </div>
                 </div>
@@ -50,16 +52,28 @@
     <div class = "container">
         <div class = "d-flex justify-content-center">
             <input type="text" id="searchString" class="form-control searchBox" placeholder="Search for an event..." onkeyup="showResult(this.value)" aria-label="searchBox" aria-describedby="basic-addon1">
-<!--            <textarea id="searchString" style="min-width: 60%; resize:none" placeholder="Search..." rows="1" onkeyup="showResult(this.value)"></textarea>-->
         </div>
     </div>
     <br/>
-<br/>
+
+    <div class="container">
+        <div class="dropdown">
+            <a class="btn btn-sm btn-danger dropdown-toggle" href="#" role="button" id="filterByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter By
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Upcoming only</a>
+                <a class="dropdown-item" href="#">In progress only</a>
+                <a class="dropdown-item" href="#">Complete only</a>
+            </div>
+        </div>
+    </div>
+
+<br/><br/>
 
     <div class="container">
         <div class="col text-center">
             <table id="events" class="table">
-
 
             </table>
 
