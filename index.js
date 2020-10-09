@@ -5,6 +5,12 @@ $.get('index.php', function (data) {
     return;
 });
 
+document.addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+        checkAuth();
+    }
+});
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
