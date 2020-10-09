@@ -102,45 +102,4 @@ function logout() {
     window.location.href = './index.html';
 }
 
-
-//============================================ REGISTER A NEW USER ===================================================
-/* Function to register a new user for the system to the database. This function must also automatically log the user
-    into the system automatically after a successful register */
-
-function registerUser() {
-
-    //get credentials
-    let username = document.getElementById('register_username').value;
-    let password = document.getElementById('register_password').value;
-    let retype_password = document.getElementById('retype_password').value;
-
-    //perform error checks
-    if (username === "" || username === null) {
-        alert("Please enter a valid username");
-        return;
-    }
-
-    if (password === "" || password === null) {
-        alert("Please enter a valid password");
-        return;
-    }
-
-    if(retype_password !== password) {
-        alert("Passwords do not match");
-        return;
-    }
-
-    //statement to check that the username being registered does not already exist.
-    for (let i = 0; i <= userData.length; i++) {
-        let each = JSON.parse(userData[i]);
-        if (username === each['username']) {
-            alert("Sorry, Username " + username + " already exists");
-            return;
-        }
-    }
-
-    //Passowrd needs to be hashed and sent to the database using register.php
-    //Cookies need to be set and user needs to be automatically logged in
-}
-
 checkCookie();

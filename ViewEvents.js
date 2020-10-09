@@ -90,28 +90,53 @@ function sortData(searchData) { //this function will convert searchData into mor
 }
 
 function showResult(str) {
-    let div = document.getElementById("events")
+    let div = document.getElementById("events");
+    let filter = document.getElementById('filterByDropdown').innerHTML;
+
+    var filterSet = false;
+    //check filter is set
+    if (filter === "Complete" || filter === "In Progress" || filter === "Upcoming") {
+        filterSet = true;
+    }
+
     div.innerHTML = "<tr><th>Event Name</th><th>Date</th><th>Start Time</th><th>Finish Time</th><th>Status</th><th>Details</th></tr>";
 
     if (str.length === 0) {
         //show all results when nothing in search
         for (let i = 0; i < searchData.length; i++) {
             let each = searchData[i]; //currently getting first result of each event, will display proper information once sortData is complete.
-            div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
-                each[2] +"</td><td>" + each[3] + "</td><td>" +
-                each[4] + "</td><td>" + each[7] +
-                "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+            if (filterSet) {
+                if (searchData[i][7] == filter) {
+                    div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
+                        each[2] +"</td><td>" + each[3] + "</td><td>" +
+                        each[4] + "</td><td>" + each[7] +
+                        "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+                }
+            } else {
+                div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
+                    each[2] +"</td><td>" + each[3] + "</td><td>" +
+                    each[4] + "</td><td>" + each[7] +
+                    "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+            }
         }
-
     } else if (str.length >= 3) {
         //show results based off search based off event name
         for (let i = 0; i < searchData.length; i++) {
             let each = searchData[i]; //currently getting first result of each event, will display proper information once sortData is complete.
             if (each[1].toLowerCase().includes(str.toLowerCase())) {
-                div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
-                    each[2] +"</td><td>" + each[3] + "</td><td>" +
-                    each[4] + "</td><td>" + each[7] +
-                    "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+                if (filterSet) {
+                    if (searchData[i][7] == filter) {
+                        div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
+                            each[2] +"</td><td>" + each[3] + "</td><td>" +
+                            each[4] + "</td><td>" + each[7] +
+                            "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+                    }
+                } else {
+                    div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
+                        each[2] +"</td><td>" + each[3] + "</td><td>" +
+                        each[4] + "</td><td>" + each[7] +
+                        "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
+                }
             }
         }
     }
@@ -122,6 +147,8 @@ function showResult(str) {
 function filterBy(filterType) {
     //console.log(filterType);
     document.getElementById('filterByDropdown').innerHTML = document.getElementById(filterType).innerHTML;
+
+    showResult(document.getElementById('searchString').value);
 
     return;
 }
@@ -143,8 +170,6 @@ function findEvent(id) {
 }
 
 function modalPopulate(id) { //populate the modal with more details
-    //TODO: check styling of group name '-' or ' ' can be easily changed
-    //TODO: check duration keep it as is or add offset + duration to get difference
 
     var event = findEvent(id); //find list of elements with id that matches
 
