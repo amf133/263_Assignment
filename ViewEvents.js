@@ -118,6 +118,15 @@ function showResult(str) {
     return;
 }
 
+//Function control for filter by Dropdown
+function filterBy(filterType) {
+    //console.log(filterType);
+    document.getElementById('filterByDropdown').innerHTML = document.getElementById(filterType).innerHTML;
+
+    return;
+}
+
+
 function disableEvent(id) { //disable event
     console.log(id);
 

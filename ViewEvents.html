@@ -58,13 +58,13 @@
 
     <div class="container">
         <div class="dropdown">
-            <a class="btn btn-sm btn-danger dropdown-toggle" href="#" role="button" id="filterByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-sm btn-danger dropdown-toggle" role="button" id="filterByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Filter By
-            </a>
+            </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Upcoming only</a>
-                <a class="dropdown-item" href="#">In progress only</a>
-                <a class="dropdown-item" href="#">Complete only</a>
+                <a onclick="filterBy(this.id)" class="dropdown-item" id="upcomingEventsFilter"href="#">Upcoming</a>
+                <a onclick="filterBy(this.id)" class="dropdown-item" id="inProgressEventsFilter" href="#">In Progress</a>
+                <a onclick="filterBy(this.id)" class="dropdown-item" id="completeEventsFilter" href="#">Complete</a>
             </div>
         </div>
     </div>
