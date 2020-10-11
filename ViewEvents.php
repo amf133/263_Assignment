@@ -12,9 +12,7 @@ if ($conn->connect_error)
 function viewEvent($conn) {
     //SQL statement to increase the number of days: CURDATE() + INTERVAL 1 DAY
     //need to change query to look at the next 7 days, not the past 150
-    $query = "select event_name, cluster_name, date, time, activate, machine_group, time_offset, event_id
-                from vw_front_event natural join front_action
-                order by date, time, group_id;";
+    $query = "select * from display_view order by date, time, group_id";
     $result = mysqli_query($conn, $query);
 
     $results = array();

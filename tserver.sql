@@ -675,4 +675,8 @@ END ;;
 
 DELIMITER ;
 
+CREATE OR REPLACE VIEW display_view
+AS select event_name, cluster_name, date, time, activate, machine_group, time_offset, event_id, group_id
+FROM vw_front_event natural join front_action;
+
 -- Dump completed on 2020-08-21 13:45:45
