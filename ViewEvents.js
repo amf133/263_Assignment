@@ -200,10 +200,6 @@ function modalPopulate(id) { //populate the modal with more details
     }
 
     description.innerHTML += "<br/>Status: " + event[7] + "<br/>"; //status
-
-    //disable button (logic yet to be done)
-    document.getElementById('disableEvent').innerHTML = "<button class='btn btn-danger' id='" + id + "' onclick='disableEvent(this.id)'>Disable</button>"
-
 }
 
 function logout() { //deletes cookies and refers back to home page
