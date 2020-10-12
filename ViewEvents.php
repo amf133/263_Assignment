@@ -1,7 +1,20 @@
 <?php
+
+/*======================================================================================================================
+Filename: ViewEvents.php
+Description: Connect with the database and retrieve all event details. This will be picked up by ViewEvents.js which
+will dynamically populate the table in ViewEvents.html or the dynamic count on index.html
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
+
 require_once("config.php");
 
-$conn = new mysqli($hostname, $username, $password, $database);
+$conn = new mysqli($hostname, $username, $password, $database); //new connection to database
 
 if ($conn->connect_error)
 {
@@ -10,15 +23,16 @@ if ($conn->connect_error)
 }
 
 function viewEvent($conn) {
-    //SQL statement to increase the number of days: CURDATE() + INTERVAL 1 DAY
-    //need to change query to look at the next 7 days, not the past 150
+    //SQL statement to get all event details from database
     $query = "select * from display_view order by date, time, group_id";
+
     $result = mysqli_query($conn, $query);
 
     $results = array();
 
     while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
+        //make an array for current event state with all details
         $each = array();
         $each['event_name'] = $row['event_name'];
         $each['cluster_name'] = $row['cluster_name'];

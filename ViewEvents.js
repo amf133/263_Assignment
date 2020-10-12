@@ -1,21 +1,34 @@
+/*======================================================================================================================
+Filename: ViewEvents.js
+Description: get details from ViewEvents.php. If on the ViewEvents.html page, this will populate the table otherwise on
+index.html this will update the counters. This file also stores logic for the search bar, filtering by status of event
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
+
 let searchData; //info pulled from ViewEvents.php and added in JSON format here
 
-$.get('ViewEvents.php', function (data) {
-    searchData = sortData(JSON.parse(data));
-    if (document.getElementById('events')) {
+$.get('ViewEvents.php', function (data) { //get echo from ViewEvents.php
+    searchData = sortData(JSON.parse(data)); //sort the data (check sortData function for format)
+    if (document.getElementById('events')) { //if on ViewEvents.html page, then populate table
         showResult("");
-    } else if (document.getElementById('upcomingEvents')) { //if on home page, populate count of each event
+    } else if (document.getElementById('upcomingEvents')) { //if on home page, populate dynamic count of each event
         dynamicHomeDisplay(); //populates main display on homepage
     }
     return;
 });
 
 
-function dynamicHomeDisplay() {
+function dynamicHomeDisplay() { //main function for index.html counter elements
     var upcomingEvents = 0;
     var inProgressEvents = 0;
     var completeEvents = 0;
 
+    //search events, check status and add whichever one to counter
     for (let i = 0; i < searchData.length; i++) {
         let status = searchData[i][7];
         if (status == "Complete") {
@@ -27,13 +40,15 @@ function dynamicHomeDisplay() {
         }
     }
 
+    //update the counters
     document.getElementById('inProgressEvents').innerHTML = inProgressEvents;
     document.getElementById('upcomingEvents').innerHTML = upcomingEvents;
     document.getElementById('completeEvents').innerHTML = completeEvents;
 
+    return;
 }
 
-function getTimes(event) {
+function getTimes(event) { //returns startTime, finishTime and duration in a list from event details
     var startTime = event[0].time;
 
     var finishTime = event[event.length - 1].time;
@@ -42,8 +57,7 @@ function getTimes(event) {
     return [startTime, finishTime, duration];
 }
 
-function getGroups(event) {
-
+function getGroups(event) { //determines groups associated with event and returns in a String type list
     var groups = [];
 
     for (let i = 0; i < event.length; i++) {
@@ -55,7 +69,7 @@ function getGroups(event) {
     return groups;
 }
 
-function getStatus(eventDate, eventTimes) {
+function getStatus(eventDate, eventTimes) { //determines and returns status
     var startTimeDate = new Date(eventDate + " " + eventTimes[0]);
     var finishTimeDate = new Date(eventDate + " " + eventTimes[1]);
 
@@ -94,7 +108,7 @@ function showResult(str) {
     let filter = document.getElementById('filterByDropdown').innerHTML;
 
     var filterSet = false;
-    //check filter is set
+    //check filter is set to Upcoming, In Progress of Upcoming
     if (filter === "Complete" || filter === "In Progress" || filter === "Upcoming") {
         filterSet = true;
     }
@@ -104,9 +118,9 @@ function showResult(str) {
     if (str.length === 0) {
         //show all results when nothing in search
         for (let i = 0; i < searchData.length; i++) {
-            let each = searchData[i]; //currently getting first result of each event, will display proper information once sortData is complete.
+            let each = searchData[i]; //get current event
             if (filterSet) {
-                if (searchData[i][7] == filter) {
+                if (searchData[i][7] === filter) {
                     div.innerHTML += "<tr><td>" + each[1] +"</td><td>" +
                         each[2] +"</td><td>" + each[3] + "</td><td>" +
                         each[4] + "</td><td>" + each[7] +
@@ -119,7 +133,7 @@ function showResult(str) {
                     "</td><td><button id='" + each[0] + "' onclick='modalPopulate(this.id)' type='button' class='btn btn-outline-danger grow' data-toggle='modal' data-target='#eventsModal'><i class=\"fa fa-info\"></i></button></td></tr>"
             }
         }
-    } else if (str.length >= 3) {
+    } else if (str.length >= 3) { //if 3 or more characters entered in search box
         //show results based off search based off event name
         for (let i = 0; i < searchData.length; i++) {
             let each = searchData[i]; //currently getting first result of each event, will display proper information once sortData is complete.
@@ -145,14 +159,10 @@ function showResult(str) {
 
 //Function control for filter by Dropdown
 function filterBy(filterType) {
-    //console.log(filterType);
     document.getElementById('filterByDropdown').innerHTML = document.getElementById(filterType).innerHTML;
-
     showResult(document.getElementById('searchString').value);
-
     return;
 }
-
 
 function disableEvent(id) { //disable event
     console.log(id);
@@ -172,7 +182,6 @@ function findEvent(id) {
 function modalPopulate(id) { //populate the modal with more details
 
     var event = findEvent(id); //find list of elements with id that matches
-
     document.getElementById('eventTitle').innerHTML = "<h5>" + event[1] + "</h5>"; //title
 
 
@@ -197,8 +206,7 @@ function modalPopulate(id) { //populate the modal with more details
 
 }
 
-
-function logout() {
+function logout() { //deletes cookies and refers back to home page
     document.cookie = "admin=; expires=Fri, 1 Jan 1960 23:59:59 GMT";
     window.location.href = './index.html';
 }

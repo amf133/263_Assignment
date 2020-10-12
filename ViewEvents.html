@@ -1,18 +1,24 @@
+<!--====================================================================================================================
+Filename: ViewEvents.html
+Description: Page for viewing events. ViewEvents.js will dynamically update the table depending on what is entered in
+search bar/filtering
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+=====================================================================================================================-->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./images/AssessIcon.png" />
-
-
-
     <meta charset="UTF-8">
     <title>Access UC | View Events</title>
-
 </head>
 <body>
 <!-- ================================================= NAV BAR ================================================-->
@@ -32,7 +38,6 @@
                         <i class="fa fa-user-circle-o grow" style="font-size:48px;"></i>
                     </ul>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<!--                        <a class="dropdown-item" href="#">My Account</a>-->
                         <a class="dropdown-item" href="#" onclick="logout()">Logout <i class="fa fa-sign-out"></i></a>
                     </div>
                 </div>
@@ -106,7 +111,6 @@
             </div>
         </div>
     </div>
-
     <script src="ViewEvents.js"></script>
     <script type="text/javascript" src="CheckLogin.js"></script>
 </body>
@@ -114,27 +118,24 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
-
 </html>
-
 <style>
     body {
         text-align: center;
     }
-
     .abs-center-x {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
-
-    .grow { transition: all .2s ease-in-out; }
-    .grow:hover { transform: scale(1.3); }
-
+    .grow {
+        transition: all .2s ease-in-out;
+    }
+    .grow:hover {
+        transform: scale(1.3);
+    }
     .searchBox {
         width: 60%;
         resize:none;
-
     }
-
 </style>
