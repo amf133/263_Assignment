@@ -1,3 +1,15 @@
+/*======================================================================================================================
+Filename: CheckLogin.js
+Description: If user is not logged in and they try and navigate to ViewEvents.html or NewEvent.html, they will be
+redirected to the home page where they have to log in.
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
