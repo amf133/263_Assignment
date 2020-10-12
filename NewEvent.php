@@ -59,6 +59,10 @@ function submitQuery($query) {
 function addEvent($event_name, $groups, $date, $cluster, $start_time, $finish_time, $offset) {
     /* get variables from JS, convert to required input, add to database */
     global $conn;
+    //sanitize to prevent malicious code being deposited in database
+    $event_name = sanitizeInput($event_name, $conn);
+    $offset = sanitizeInput($offset, $conn);
+
     $group_ids = getGroupIds($groups);
     $event_id = getNewId();
     $dyWkYr = getDates($date); //array with three values
@@ -83,4 +87,16 @@ if ( isset($_POST["sendData"]) ) {
     $data = $_POST["sendData"];
     $groups = explode(',', $data["groups"]);
     addEvent($data["event_name"], $groups, $data["date"], $data["cluster"], $data["start_time"], $data["finish_time"], $data["offset"]);
+}
+
+//sanitize inputs
+function sanitizeInput($input, $conn)
+{
+    if (get_magic_quotes_gpc()) {
+
+        $input = stripslashes($input);
+    }
+    $input = $conn->real_escape_string($input);
+
+    return htmlentities($input);
 }
