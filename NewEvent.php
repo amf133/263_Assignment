@@ -1,4 +1,14 @@
 <?php
+/*======================================================================================================================
+Filename: NewEvent.php
+Description: all database to PHP functionality included in adding new events
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
 require_once("config.php");
 
 $conn = new mysqli($hostname, $username, $password, $database);

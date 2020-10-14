@@ -1,3 +1,14 @@
+/*======================================================================================================================
+Filename: index.js
+Description: includes user authentication functionality for the home page
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
+
 let userData; //info pulled from index.php and added in JSON format here
 
 $.get('index.php', function (data) {

@@ -1,4 +1,14 @@
 <?php
+/*======================================================================================================================
+Filename: index.php
+Description: database connectivity for user authentication
+
+Authors:
+Simon Lorimer
+Alec Fox
+Sean Madondo
+Josiah Thorpe
+======================================================================================================================*/
 require_once("config.php");
 
 //Establish connection to db

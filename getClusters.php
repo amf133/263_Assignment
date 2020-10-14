@@ -1,4 +1,5 @@
 <?php
+
 require_once("config.php");
 
 $conn = new mysqli($hostname, $username, $password, $database);
